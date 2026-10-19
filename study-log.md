@@ -7,6 +7,7 @@
 ## 记录
 
 - 2026-10-19 | 8h | 任务1：环境搭建通关（IDEA/JDK17/Maven/Git/MySQL/Redis）+ GitHub仓库建立 + 首次push | 2 commits
+- 2026-10-19 | 4h | JavaWeb Day1：黑马P1-P5（Web导学/前端初识/HTML入门程序/VsCode/常见标签-央视新闻标题排版，视频3h+敲码1h），手敲text1/text2/text3三页面并验收通关 | 1 commit
 - 2026-10-20 | __ |  | 
 - 2026-10-21 | __ |  | 
 - 2026-10-22 | __ |  | 

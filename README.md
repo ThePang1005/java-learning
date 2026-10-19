@@ -16,6 +16,10 @@ Java 后端学习仓库 — ThePang1005
 - [ ] 八股（JavaGuide）+ 力扣 100 题
 - [ ] 简历 + 寒假实习投递 + 春招
 
+## 当前进度
+
+- 2026-10-19：JavaWeb 开跑 —— 黑马 P1-P5 HTML 入门通关（text1/text2/text3 三页面验收通过，代码在 course-practice/html-css/），下一步 P6-P10 CSS 选择器与样式
+
 ## 提交规则
 
 - 每天学完必须提交，commit message 写清当天内容
