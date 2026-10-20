@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单标签</title>
+</head>
+<body>
+    
+<!-- get:  get请求参数会显示在url中  形式为:  /save?username=张三&age=14
+特点:  get请求参数会显示在url中  所以不能传递敏感信息   
+        但是get请求参数可以传递多个参数  用&隔开
+        但是get请求参数不能传递文件
+        但是get请求参数不能传递大文件   
+
+post:  post请求参数不会显示在url中  会显示在请求体中 
+特点:  post请求参数不会显示在url中  所以可以传递敏感信息   
+        但是post请求参数不能传递多个参数  用&隔开
+        但是post请求参数可以传递文件
+        但是post请求参数可以传递大文件  
+-->
+    
+<form action="/save" method="post">
+
+    <label for="username">用户名:</label><input type="text" id="username" name="username" placeholder="请输入用户名" required><br>
+
+    <!-- 姓名:<input type="text" name="username" placeholder="请输入用户名"><br> -->
+    <!-- required:  用于指定表单元素是必填项  required属性的值是true -->
+    <label for="password">密码:</label><input type="password" id="password" name="password" placeholder="请输入密码" required><br>
+    <label for="age">年龄:</label><input type="number" id="age" name="age" placeholder="请输入年龄"><br> 
+    <!-- label是什么标签:  用于包裹表单元素  用于描述表单元素的含义         -->
+     <!-- 一组的name需要一样 -->
+
+    性别:<input type="radio" name="gender" value="男">男
+    <label><input type="radio" name="gender" value="女">女<br></label>
+
+    爱好:<label><input type="checkbox" name="hobby" value="篮球">篮球</label>
+    <label><input type="checkbox" name="hobby" value="足球">足球</label>
+    <label><input type="checkbox" name="hobby" value="跑步">跑步</label>   <br>
+
+    图像:<input type="file" name="image"><br>
+    生日:<input type="date" name="birthday"><br>
+    时间:<input type="time" name="time"><br>
+    日期时间:<input type="datetime-local" name="datetime"><br>
+
+
+    学历:<select name="education">
+        <option value="">请选择</option>
+        <option value="本科">本科</option>  
+        <option value="硕士">硕士</option>
+        <option value="博士">博士</option>
+    </select><br>
+
+    描述:<textarea name="description" id="" cols="30" rows="10"></textarea><br>
+    <input type="hidden" name="hidden" value="隐藏的值"><br>
+
+    <!-- 表单常见按钮:<br> -->
+    提交按钮:  用于提交表单数据到服务器
+        <input type="submit" value="提交">
+    <!-- 重置按钮:  用于重置表单数据 -->
+        <input type="reset" value="重置">
+    <!-- 按钮:  用于触发事件 -->
+        <input type="button" value="按钮" onclick="alert('按钮被点击了')">       
+
+</form>
+
+</body>
+</html>
