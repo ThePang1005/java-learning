@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+      
+<style>
+        #div1{
+            width: 400px;
+            height: 200px;
+            background-color: red;
+            /* 内边距 */
+            padding: 20px;
+            /* 外边距 */
+            margin: 20px auto;
+            /* 边框 */
+            border: 10px solid black;
+        }
+    </style>
+<!-- 为什么文本会超出格子？ 因为文本的宽度大于盒子的宽度。
+    解决方法：
+    1. 文本换行
+    2. 文本超出盒子时，添加滚动条        -->    
+    
+</head>
+<body>
+    
+    <div id="div1">   
+        11111111111111111111111111111111
+        11111111111111111111111111111111
+        11111111111111111111111111111111
+        11111111111111
+    </div>
+    
+
+
+    <!-- <div id="div2">   
+        2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+    </div>
+
+    <span>123</span>
+
+    <span>123</span> -->
+
+</body>
+</html>
