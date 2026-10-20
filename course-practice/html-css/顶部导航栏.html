@@ -34,13 +34,176 @@
             /* 去除下划线 */
             text-decoration: none;
         }
+
+        /* 搜索表单区域样式 */
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+            margin: 20px 0;
+        }
+        .search-form label {
+            font-size: 16px;
+        }
+        .search-form input,
+        .search-form select {
+            width: 300px;
+            padding: 6px 8px;
+            font-size: 16px;
+        }
+        .search-form button {
+            padding: 6px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* 表格区域样式 */
+        .table-area {
+            padding: 16px 20px; /* 内边距 */
+        }
+        table {
+            width: 100%; /* 宽度自适应 */
+            border-collapse: collapse; /* 合并边框 */
+            font-size: 16px; /* 字体大小 */
+        }
+        th, td {
+            border: 1px solid #ccc; /* 边框 */
+            padding: 10px; /* 内边距 */
+            text-align: center; /* 居中对齐 */
+        } 
+        th {
+            background-color: #f5f5f5; /* 表头背景颜色 */
+        }
+        .avatar {
+            width: 40px;        /* 头像宽度 */
+            height: 40px;       /* 头像高度 */
+            border-radius: 50%; /* 圆角边框 */
+            object-fit: cover;  /* 头像等比例缩放 */
+                   }
+        .btn-edit {
+            color: #0066ff;  /* 编辑按钮颜色 */
+            cursor: pointer;     /* 鼠标悬停时显示为指针 */
+             margin-right: 8px;   /* 右外边距 */
+        }
+        .btn-del {
+            color: red;        /* 删除按钮颜色 */
+            cursor: pointer;    /* 鼠标悬停时显示为指针 */
+        }
+
+        /* 页脚版权区域 */
+        .footer {
+            background-color: #cccccc;    /* 背景颜色 */        
+            color: #ffffff;     /* 文字颜色 */
+            text-align: center; /* 居中对齐 */
+            padding: 15px 0;     /* 内边距 */
+            margin-top: 20px;    /* 上外边距 */
+        }
+        .footer p {
+            margin: 6px 0;     /* 上下外边距 */
+            font-size: 15px;     /* 字体大小 */
+        }
+        #container {
+            width: 80%; /* 宽度自适应 */
+            margin: 0 auto; /* 居中显示 */
+        }
     </style>
 </head>
 <body>
-    <!-- 第一部分：顶部导航栏 -->
+   <div id="container">  <!-- 第一部分：顶部导航栏 -->
     <div class="navbar">
         <div class="title">Tlias智能学习辅助系统</div>
         <a href="#" class="logout-link">退出登录</a>
     </div>
+
+    <!-- 第二部分：搜索表单区域 -->
+    <form class="search-form" action="/search" method="post">
+        <label for="name">姓名：</label>
+        <input type="text" name="name" placeholder="请输入姓名">
+
+        <label for="gender">性别：</label>
+        <select name="gender">
+            <option value="">--请选择--</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+
+        <label for="job">职位：</label>
+        <select name="job">
+            <option value="">--请选择--</option>
+            <option value="班主任">班主任</option>
+            <option value="讲师">讲师</option>
+            <option value="学工主管">学工主管</option>
+            <option value="教研主管">教研主管</option>
+            <option value="咨询师">咨询师</option>
+        </select>
+
+        <button type="button">查询</button>
+        <button type="reset">清空</button>
+    </form>
+
+    <!-- 第三部分：表格展示区 -->
+    <div class="table-area">
+        <table>
+            <!-- 表头 -->
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>头像</th>
+                    <th>职位</th>
+                    <th>入职日期</th>
+                    <th>最后操作时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+                <!-- 表体 -->
+            <tbody>
+                <tr>
+                    <td>令狐冲</td>
+                    <td>男</td>
+                    <td><img class="avatar" src="https://picsum.photos/id/1005/40/40" alt="头像"></td>
+                    <td>讲师</td>
+                    <td>2024-01-10</td>
+                    <td>2026-10-20 14:30:22</td>
+                    <td >   
+                        <button class="btn-edit">编辑</button>
+                        <button class="btn-del">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>任盈盈</td>
+                    <td>女</td>
+                    <td><img class="avatar" src="https://picsum.photos/id/1027/40/40" alt="头像"></td>
+                    <td>教研主管</td>
+                    <td>2024-02-15</td>
+                    <td>2026-10-20 15:10:05</td>
+                    <td >   
+                        <button class="btn-edit">编辑</button>
+                        <button class="btn-del">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>岳不群</td>
+                    <td>男</td>
+                    <td><img class="avatar" src="https://picsum.photos/id/1012/40/40" alt="头像"></td>
+                    <td>班主任</td>
+                    <td>2024-03-08</td>
+                    <td>2026-10-20 16:22:47</td>
+                    <td >
+                        <button class="btn-edit">编辑</button>
+                        <button class="btn-del">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 第四部分：页脚版权区域 -->
+    <footer class="footer">
+        <p>苏传智播客教育科技股份有限公司</p>
+        <p>版权所有Copyright 2006-2024 All Rights Reserved</p>
+    </footer></div>
 </body>
 </html>
