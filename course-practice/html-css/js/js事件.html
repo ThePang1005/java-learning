@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js事件</title>
+</head>
+<body>
+    
+<input type="button" id="btn" value="点我">
+<input type="button" id="btn2" value="点我2">
+
+<script>
+    //事件绑定(多次绑定同一事件 不会覆盖)
+    document.querySelector("#btn").addEventListener("click",()=>{
+        alert("点我了");
+    })
+    document.querySelector("#btn").addEventListener("click",()=>{
+        alert("点我了");
+    })
+
+
+    //早期写法(多次绑定同一事件 会覆盖)
+    document.querySelector("#btn2").onclick = ()=>{
+        alert("点我了2");
+    }
+    document.querySelector("#btn2").onclick = ()=>{
+        alert("点我了2");
+    }
+    
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+</head>
+<body>
+    
+    <!-- <script>
+        alert(typeof 10);//number       
+        alert(typeof 1.5);//number
+
+        alert(typeof true); //boolean
+        alert(typeof false);//boolean
+
+        alert(typeof "hello");  //string
+        alert(typeof 'js'); //string
+        alert(typeof `java`);//string  //模板字符串
+
+        alert(typeof null); //object
+        alert(typeof undefined);//undefined
+
+        let a = 10;
+        let b = `hello`;
+        console.log(`111${a}1111${b}`);//111101111hellohello
+
+
+    </script> -->
+
+    <script>
+
+        function add(a,b){//函数声明
+            return a+b;
+        }
+        let c = add(10,20);
+        console.log(c);//30
+        console.log(typeof c);//number
+
+        let d = function(a,b){//匿名函数
+            return a-b;
+        }
+        let e = d(10,20);
+        console.log(e);//-10
+        console.log(typeof e);//number
+
+        let f = (a,b)=>{//箭头函数
+            return a*b;
+        }
+        let g = f(10,20);  
+        console.log(g);//200
+        console.log(typeof g);//number
+    </script>
+
+</body>
+</html>

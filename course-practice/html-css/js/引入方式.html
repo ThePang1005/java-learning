@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引入方式</title>
+</head>
+<body>
+    <!-- <script>
+        //内部脚本
+        alert('hello world');
+
+    </script>-->
+    <!-- 外部脚本 -->
+<button onclick="alert('行内引入方式')">点我试试</button>
+
+    <script src="text1.js"></script>
+
+
+    <script>
+        //声明变量
+        // 这个10是变量a的初始值
+        let a = 10;
+        a= "hello ";
+        alert(a);//输出到浏览器弹窗       
+
+        //声明常量
+        const pi = 3.14;
+        // pi=5;     // 报错，因为pi是常量，不能重新赋值
+        console.log(pi);//输出到控制台
+        document.write(pi);//输出到浏览器页面
+    </script>   
+
+</body>
+</html>
