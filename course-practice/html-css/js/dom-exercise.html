@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Exercise</title>
+</head>
+<body>
+    <div id="container">
+        <p id="p1">这是一个段落</p>
+        <input type="button" id="btn" value="点击我">
+    </div>
+
+    <script>
+        document.querySelector("#btn").addEventListener("click",()=>{
+    let p = document.querySelector("#p1");
+    p.style.color = "red";
+    p.innerHTML = "这是一个新的段落";
+})
+
+    </script>
+
+
+</body>
+</html>

@@ -141,6 +141,7 @@
 
         <button type="button">查询</button>
         <button type="reset">清空</button>
+        <button type="submit">提交</button>
     </form>
 
     <!-- 第三部分：表格展示区 -->
@@ -204,6 +205,29 @@
     <footer class="footer">
         <p>苏传智播客教育科技股份有限公司</p>
         <p>版权所有Copyright 2006-2024 All Rights Reserved</p>
-    </footer></div>
+    </footer> 
+
+</div>
+
+ <!-- // 引入事件处理模块 module -->
+    <script src="js/eventtext.js" type="module">
+
+    </script>
+
+    <script>
+        //通过JS为上述的表格中数据添加事件监听,实现鼠标进入后,背景色#f2e2e2;鼠标离开后,背景色恢复为#fff
+        document.querySelectorAll("tr").forEach(tr=>{
+            tr.addEventListener("mouseenter",()=>{
+                tr.style.backgroundColor = "#f2e2e2";
+            })
+            tr.addEventListener("mouseleave",()=>{
+                tr.style.backgroundColor = "#fff";
+            })
+        })
+
+           
+
+    </script>
+
 </body>
 </html>

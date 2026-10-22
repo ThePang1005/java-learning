@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tlias智能学习辅助系统</title>
+    <style>
+        /* 导航栏样式 */
+        .navbar {
+            background-color: #cccccc; /* 灰色背景 */
+
+            display: flex;  /* 弹性布局 */
+            /* justify-content: space-around; 左右平均分布 */
+            /* justify-content: center; 居中对齐 */
+            /* justify-content: flex-start; 左对齐 */
+            /* justify-content: flex-end; 右对齐 */
+            justify-content: space-between;  /* 左右分开 */
+
+            align-items: center;     /* 垂直居中 */
+            padding: 12px 20px;     /* 内边距 */
+        }
+        .title {
+            font-weight: bold;
+            font-size: 22px;
+            color: white;
+            /* 设置字体为楷体 */
+            font-family: "楷体", cursive;
+        }
+        .logout-link {
+            font-size: 16px;
+            color: #0000ee;
+            text-decoration: underline;
+            cursor: pointer;
+            /* 去除下划线 */
+            text-decoration: none;
+        }
+
+        /* 搜索表单区域样式 */
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+            margin: 20px 0;
+        }
+        .search-form label {
+            font-size: 16px;
+        }
+        .search-form input,
+        .search-form select {
+            width: 300px;
+            padding: 6px 8px;
+            font-size: 16px;
+        }
+        .search-form button {
+            padding: 6px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* 表格区域样式 */
+        .table-area {
+            padding: 16px 20px; /* 内边距 */
+        }
+        table {
+            width: 100%; /* 宽度自适应 */
+            border-collapse: collapse; /* 合并边框 */
+            font-size: 16px; /* 字体大小 */
+        }
+        th, td {
+            border: 1px solid #ccc; /* 边框 */
+            padding: 10px; /* 内边距 */
+            text-align: center; /* 居中对齐 */
+        } 
+        th {
+            background-color: #f5f5f5; /* 表头背景颜色 */
+        }
+        .avatar {
+            width: 40px;        /* 头像宽度 */
+            height: 40px;       /* 头像高度 */
+            border-radius: 50%; /* 圆角边框 */
+            object-fit: cover;  /* 头像等比例缩放 */
+                   }
+        .btn-edit {
+            color: #0066ff;  /* 编辑按钮颜色 */
+            cursor: pointer;     /* 鼠标悬停时显示为指针 */
+             margin-right: 8px;   /* 右外边距 */
+        }
+        .btn-del {
+            color: red;        /* 删除按钮颜色 */
+            cursor: pointer;    /* 鼠标悬停时显示为指针 */
+        }
+
+        /* 页脚版权区域 */
+        .footer {
+            background-color: #cccccc;    /* 背景颜色 */        
+            color: #ffffff;     /* 文字颜色 */
+            text-align: center; /* 居中对齐 */
+            padding: 15px 0;     /* 内边距 */
+            margin-top: 20px;    /* 上外边距 */
+        }
+        .footer p {
+            margin: 6px 0;     /* 上下外边距 */
+            font-size: 15px;     /* 字体大小 */
+        }
+        #container {
+            width: 80%; /* 宽度自适应 */
+            margin: 0 auto; /* 居中显示 */
+        }
+    </style>
+</head>
+<body>
+   <div id="container">  <!-- 第一部分：顶部导航栏 -->
+    <div class="navbar">
+        <div class="title">Tlias智能学习辅助系统</div>
+        <a href="#" class="logout-link">退出登录</a>
+    </div>
+    <!-- 第二部分：搜索表单区域 -->
+    <form class="search-form" action="/search" method="post">
+        <label for="name">姓名：</label>
+        <input id="name" type="text" name="name" v-model="searchForm.name" placeholder="请输入姓名">
+
+        <label for="gender">性别：</label>
+        <select id="gender" name="gender" v-model="searchForm.gender">
+            <option value="">--请选择--</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+
+        <label for="job">职位：</label>
+        <select id="job" name="job" v-model="searchForm.job">
+            <option value="">--请选择--</option>
+            <option value="1">班主任</option>
+            <option value="2">讲师</option>
+            <option value="3">学工主管</option>
+            <option value="4">教研主管</option>
+            <option value="5">咨询师</option>
+        </select>
+
+        <button type="button" v-on:click="search">查询</button>
+        <button type="reset" @click="resetForm">清空</button>
+        <button type="submit">提交</button>
+    </form>
+
+    <!-- 第三部分：表格展示区 -->
+    <div class="table-area">
+        <table>
+            <!-- 表头 -->
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>头像</th>
+                    <th>职位</th>
+                    <th>入职日期</th>
+                    <th>最后操作时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+                <!-- 表体 -->
+            <tbody>
+                <tr v-for="(item,index) in empList" :key="item.id">
+                    <td>{{index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.gender}}</td>
+                    <td><img class="avatar" v-bind:src="item.avatar" :alt="item.name+'头像'"></td>
+
+                                        <!-- <td>
+                        <span v-if="item.job==1">班主任</span>
+                        <span v-else-if="item.job==2">讲师</span>
+                        <span v-else-if="item.job==3">学工主管</span>
+                        <span v-else-if="item.job==4">教研主管</span>
+                        <span v-else-if="item.job==5">咨询师</span>
+                        <span v-else>其他</span>
+                    </td> -->
+                    
+                                        <td>
+                        <span v-show="item.job==1">班主任</span>
+                        <span v-show="item.job==2">讲师</span>
+                        <span v-show="item.job==3">学工主管</span>
+                        <span v-show="item.job==4">教研主管</span>
+                        <span v-show="item.job==5">咨询师</span>
+                    </td>    
+
+                    <td>{{item.hireDate}}</td>
+                    <td>{{item.lastOpTime}}</td>
+                    <td >   
+                        <button class="btn-edit">编辑</button>
+                        <button class="btn-del">删除</button>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 第四部分：页脚版权区域 -->
+    <footer class="footer">
+        <p>苏传智播客教育科技股份有限公司</p>
+        <p>版权所有Copyright 2006-2024 All Rights Reserved</p>
+    </footer> 
+
+</div>
+
+<script type="module">
+import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+
+createApp({
+    data() {
+        return {
+            searchForm: { // 搜索表单数据
+                name: "",
+                gender: "",
+                job: ""
+            },
+            empList: [
+                {
+                    id: 1,
+                    name: "令狐冲",
+                    gender: "男",
+                    avatar: "https://picsum.photos/id/1005/40/40",
+                    job: 1,
+                    hireDate: "2024-01-10",
+                    lastOpTime: "2026-10-20 14:30:22"
+                },
+                {
+                    id: 2,
+                    name: "任盈盈",
+                    gender: "女",
+                    avatar: "https://picsum.photos/id/1027/40/40",
+                    job: 2,
+                    hireDate: "2024-02-15",
+                    lastOpTime: "2026-10-20 15:10:05"
+                },
+                {
+                    id: 3,
+                    name: "岳不群",
+                    gender: "男",
+                    avatar: "https://picsum.photos/id/1012/40/40",
+                    job: 3,
+                    hireDate: "2024-03-08",
+                    lastOpTime: "2026-10-20 16:22:47"
+                }
+            ]
+        }
+    },
+    methods: {
+        search() {
+            //将搜索条件输出到控制台
+            console.log(this.searchForm);
+    },
+    resetForm() {
+        //将搜索表单数据清空
+        this.searchForm = {
+            name: "",
+            gender: "",
+            job: ""
+        };
+    }
+}
+        
+}).mount('#container')
+</script>
+
+</body>
+</html>
