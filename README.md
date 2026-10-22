@@ -26,6 +26,7 @@ Java 后端学习仓库 — ThePang1005
 - 2026-10-22（凌晨）：JS 核心语法 P17-P24 全段通关（引入方式三式/变量类型/函数三形态/对象JSON/DOM/事件监听/ES模块化），js/ 目录 8 文件入库；DOM 整合练习欠账（明早开门砖）；下一步 P25 Vue 开篇
 - 2026-10-22（上午）：开门砖通关 —— http 服务供血验证 eventtext.js 七事件真活 + dom-exercise.html 三轮验收；module 在 file:// 下被 CORS 掐死的问题确认解决
 - 2026-10-23（凌晨）：Vue 段 P25-P28 全段通关 —— 练习.html 用 Vue 重写 tlias 页面（挂载插值/v-for :key/v-bind/v-if 与 v-show/v-model/v-on 全指令实战），:key 绑不存在字段与 HTML 伪注释两错入错题本；下一步 P29-P30 Ajax，前端段 P1-P30 收官
+- 2026-10-23（早）：Ajax 段 P29-P30 通关 —— axios 三写法（配置式/get-post 简写/async-await）+ tlias 案例接真实接口（web-server.itheima.net）动态渲染员工列表；前端段 P1-P30 正式收官；下一步换挡回 Java：补丁A（异常/集合/注解/Lambda），补完进 P31 Maven
 
 ## 提交规则
 

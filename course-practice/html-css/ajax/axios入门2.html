@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios入门2</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    
+    <input type="button" id="btnget" value="获取数据">
+    <input type="button" id="btnpost" value="操作数据">
+
+    <script >
+        document.querySelector("#btnget").addEventListener("click", ()=> {
+         axios.get('https://mock.apifox.cn/m1/3083103-0-default/emps/list').then(res=>{//成功回调
+            console.log(res.data);
+        }).catch((err) => {//失败回调
+            console.log(err);
+        })
+        console.log('=====================');
+        })
+
+        document.querySelector("#btnpost").addEventListener("click", ()=> {
+            axios.post('https://mock.apifox.cn/m1/3083103-0-default/emps/update','id=1')
+            .then(res=>{//成功回调
+                console.log(res.data);
+            }).catch((err) => {//失败回调
+                console.log(err);
+            })
+        })
+
+    </script>
+
+</body>
+</html>
